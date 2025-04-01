@@ -1,9 +1,8 @@
 from django.db import models
 
-
 class Article(models.Model):
     CATEGORY_CHOICES = [
-        ('general', 'General'),
+        ('home', 'Home'),
         ('business', 'Business'),
         ('entertainment', 'Entertainment'),
         ('health', 'Health'),
@@ -19,6 +18,9 @@ class Article(models.Model):
     date = models.DateField( null=True, blank=True)
     # publisher_name = models.CharField(max_length=255, null=True, blank=True)
     publisher_logo = models.URLField(null=True, blank=True)
+    image = models.URLField(null=True, blank=True)
+    video = models.URLField(null=True, blank=True)
+    lastmod = models.DateTimeField(null=True, blank=True)
 
     
 

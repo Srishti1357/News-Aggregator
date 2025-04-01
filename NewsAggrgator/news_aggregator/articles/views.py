@@ -2,17 +2,14 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from rest_framework_simplejwt.tokens import RefreshToken
-from rest_framework import status
+from rest_framework import status, generics, filters
 from django.contrib.auth.models import User
 from .models import Article
 from .serializers import ArticleSerializer
 from django.contrib.auth import authenticate
-
-from rest_framework.decorators import api_view
-from rest_framework import status
-from rest_framework_simplejwt.tokens import AccessToken
+from django_filters.rest_framework import DjangoFilterBackend
+from .filters import ArticleFilter
 from rest_framework_simplejwt.exceptions import TokenError
-
 
 class RegisterView(APIView):
     def post(self, request):
@@ -56,7 +53,7 @@ class LoginView(APIView):
             # Generate JWT tokens
             refresh = RefreshToken.for_user(user)
             return Response({
-                  "message": "Login successful",
+                "message": "Login successful",
                 "access": str(refresh.access_token),
                 "refresh": str(refresh),
                 "username": username
@@ -65,25 +62,17 @@ class LoginView(APIView):
         return Response({"error": "Invalid username or password"}, status=status.HTTP_401_UNAUTHORIZED)
 
 
-class ArticleListView(APIView):
+
+class ArticleListView(generics.ListAPIView):
+    queryset = Article.objects.all()
+    serializer_class = ArticleSerializer
+    filter_backends = [DjangoFilterBackend, filters.OrderingFilter, filters.SearchFilter]
+    filterset_class = ArticleFilter
+    search_fields = ['title']
+    ordering_fields = ['created_at', 'category']
     permission_classes = [IsAuthenticated]
 
-    def get(self, request):
-        """
-        Returns a list of articles. Requires authentication.
-        """
-        articles = Article.objects.all()
-        serializer = ArticleSerializer(articles, many=True)
-        return Response(serializer.data)
 
-
-from rest_framework_simplejwt.views import TokenRefreshView
-
-class CustomTokenRefreshView(TokenRefreshView):
-    """
-    Custom refresh token view that provides a new access token using a valid refresh token.
-    """
-    pass
 
 class LogoutView(APIView):
     permission_classes = [IsAuthenticated]

@@ -39,10 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'articles',
     'corsheaders',
+    'django_extensions',
     'rest_framework.authtoken',
     'rest_framework',
     'rest_framework_simplejwt',  # This should be here
     'rest_framework_simplejwt.token_blacklist',
+    'django_filters',
 ]
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
