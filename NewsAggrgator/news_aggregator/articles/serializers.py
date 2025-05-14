@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Article
+from .models import Article, SavedArticle
 from django.contrib.auth.models import User
 
 
@@ -18,3 +18,10 @@ class LoginSerializer(serializers.Serializer):
         if user and user.check_password(data['password'].first()):
             return user
         raise serializers.ValidationError("Unable to log in with provided credentials.")
+    
+class SavedArticleSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SavedArticle
+        fields = ['id', 'title', 'link', 'category', 'image', 'video', 'publisher_logo', 'lastmod']
+
+    lastmod = serializers.DateTimeField(source='article.lastmod', default=None)

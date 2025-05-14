@@ -18,11 +18,15 @@ Content-Type: application/json
 
 ###
 
-GET http://127.0.0.1:8000/articles/ HTTP/1.1
+
+GET http://127.0.0.1:8000/articles/?page=1 HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM4OTIyMDQxLCJpYXQiOjE3Mzg5MjExNDEsImp0aSI6IjM0Njk2MmEzYjQwNjRmZDM5MWE0YWQyNTkxODE0ZmYwIiwidXNlcl9pZCI6Mn0.x-rvBn5nJfdIbyO67OISgbu3K8gwahJv_m0f9qbqcNk
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1ODI5MTQ2LCJpYXQiOjE3NDU4MjgyNDYsImp0aSI6ImU5NWY1OTBkYWUwNzQwOWI5NDMxYzdjNjU3MDEzOWU4IiwidXNlcl9pZCI6Mn0.PvM2-j-C7t4jILhRz2v6UDsXB7Pns8hul_DFk8aWVB0
+
 
 ###
+
+
 
 POST http://127.0.0.1:8000/logout/ HTTP/1.1
 Content-Type: application/json
@@ -35,6 +39,13 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiY
 
 ###
 
-GET http://127.0.0.1:8000/articles/?search=entertainment HTTP/1.1
+GET http://127.0.0.1:8000//articles/filter/?category=health HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM3NzI4NjExLCJpYXQiOjE3Mzc3Mjc3MTEsImp0aSI6IjY1NWIzNGM0M2FiZjRkMWRhYTMwMjlkODhkOTVhY2VjIiwidXNlcl9pZCI6MX0.qM6Zr-CcvG8uSfIrUNH2_VzKRwgvEim37wJ4Lc6-Uug
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ2MDg5NzM2LCJpYXQiOjE3NDYwODg4MzYsImp0aSI6IjgyNzkzMTk0YjE1MTRhMDhhMmJiNDQ0Y2Y3ZjVkMzI0IiwidXNlcl9pZCI6Mn0.L29nnXQLUhxm4ur_Dz1Jgla-lvlnKLEk2I3-ymOb6uQ
+
+
+###
+
+GET http://127.0.0.1:8000/articles/?search=Trump HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ2MDg5NzM2LCJpYXQiOjE3NDYwODg4MzYsImp0aSI6IjgyNzkzMTk0YjE1MTRhMDhhMmJiNDQ0Y2Y3ZjVkMzI0IiwidXNlcl9pZCI6Mn0.L29nnXQLUhxm4ur_Dz1Jgla-lvlnKLEk2I3-ymOb6uQ

@@ -474,6 +474,7 @@ import requests
 from datetime import datetime
 from .models import Article
 from datetime import datetime
+from datetime import timezone
 
 
 def scrape_cnn():
@@ -514,10 +515,13 @@ def scrape_cnn():
         updated = update.get_text() 
         lastmod = datetime.fromisoformat(updated.replace("Z", "+00:00"))
 
-        publisher_logo = "https://play-lh.googleusercontent.com/bwm2w2FDiqbM4iDj-NRceDS2pMzztQaK-xptPCubSd7xMblWWrNIjITZNVlkcN3tag"
+        publisher_logo = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/CNN_International_logo.svg/2048px-CNN_International_logo.svg.png"
 
-        Article.objects.get_or_create(title=title, link=link, category="home",publisher_logo = publisher_logo, image = image_loc, video = video_loc, lastmod = lastmod)
-        print(f"Saved Article: {title}")
+        if image_loc == "None" and video_loc == "None":
+            continue
+        else:
+            Article.objects.get_or_create(title=title, link=link, category="home",publisher_logo = publisher_logo, image = image_loc, video = video_loc, lastmod = lastmod)
+            print(f"Saved Article: {title}")
 
         
 
@@ -554,16 +558,20 @@ def scrape_business_news():
                 lastmod = None
 
             publisher_logo = "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.hindustantimes.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL"
-
-            Article.objects.get_or_create(
-                title=title,
-                link=link,
-                category="business",
-                publisher_logo=publisher_logo,
-                image=image_loc,
-                lastmod=lastmod
-            )
-            print(f"Saved Article: {title}")
+            video_loc = "None"
+            if image_loc == "None" and video_loc == "None":
+                continue
+            else:
+                Article.objects.get_or_create(
+                    title=title,
+                    link=link,
+                    category="business",
+                    publisher_logo=publisher_logo,
+                    image=image_loc,
+                    video = video_loc,
+                    lastmod=lastmod
+                )
+                print(f"Saved Article: {title}")
 
     except Exception as e:
         print(f"Error fetching articles: {e}")
@@ -600,15 +608,21 @@ def scrape_entertainment_news():
 
             publisher_logo = "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.hindustantimes.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL"
 
-            Article.objects.get_or_create(
-                title=title,
-                link=link,
-                category="business",
-                publisher_logo=publisher_logo,
-                image=image_loc,
-                lastmod=lastmod
-            )
-            print(f"Saved Article: {title}")
+            video_loc = "None"
+            if image_loc == "None" and video_loc == "None":
+                continue
+            else:
+
+                Article.objects.get_or_create(
+                    title=title,
+                    link=link,
+                    category="entertainment",
+                    publisher_logo=publisher_logo,
+                    image=image_loc,
+                    video=video_loc,
+                    lastmod=lastmod
+                )
+                print(f"Saved Article: {title}")
 
     except Exception as e:
         print(f"Error fetching articles: {e}")
@@ -645,15 +659,20 @@ def scrape_sports_news():
 
             publisher_logo = "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.hindustantimes.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL"
 
-            Article.objects.get_or_create(
-                title=title,
-                link=link,
-                category="sports",
-                publisher_logo=publisher_logo,
-                image=image_loc,
-                lastmod=lastmod
-            )
-            print(f"Saved Article: {title}")
+            video_loc = "None"
+            if image_loc == "None" and video_loc == "None":
+                continue
+            else:
+                Article.objects.get_or_create(
+                    title=title,
+                    link=link,
+                    category="sports",
+                    publisher_logo=publisher_logo,
+                    image=image_loc,
+                    video=video_loc,
+                    lastmod=lastmod
+                )
+                print(f"Saved Article: {title}")
 
     except Exception as e:
         print(f"Error fetching articles: {e}")
@@ -691,15 +710,20 @@ def scrape_technology_news():
 
             publisher_logo = "https://s.yimg.com/uu/api/res/1.2/maqbCLGSv3qu5gcg3Zi49g--~B/Zmk9ZmlsbDtoPTIwMDtweW9mZj0wO3c9MjAwO2FwcGlkPXl0YWNoeW9u/https://s.yimg.com/os/creatr-uploaded-images/2021-06/80676e30-c472-11eb-bf8e-aa28f7f089bb.cf.jpg"
 
-            Article.objects.get_or_create(
-                title=title,
-                link=link,
-                category="technology",
-                publisher_logo=publisher_logo,
-                image=image_loc,
-                lastmod=lastmod
-            )
-            print(f"Saved Article: {title}")
+            video_loc = "None"
+            if image_loc == "None" and video_loc == "None":
+                continue
+            else:
+                Article.objects.get_or_create(
+                    title=title,
+                    link=link,
+                    category="technology",
+                    publisher_logo=publisher_logo,
+                    image=image_loc,
+                    video=video_loc,
+                    lastmod=lastmod
+                )
+                print(f"Saved Article: {title}")
 
     except Exception as e:
         print(f"Error fetching articles: {e}")
@@ -753,19 +777,24 @@ def scrape_political_news():
             # Publisher logo (default for BBC)
             publisher_logo = "https://news.bbcimg.co.uk/nol/shared/img/bbc_news_120x60.gif"
             
+            video_loc = "None"
+            if image_loc == "None" and video_loc == "None":
+                continue
+            else:
             # Save the article in the database
-            try:
-                Article.objects.get_or_create(
-                    title=title,
-                    link=link,
-                    category="politics",
-                    publisher_logo=publisher_logo,
-                    image=image_loc,
-                    lastmod=lastmod
-                )
-                print(f"Saved Article: {title}")
-            except Exception as db_e:
-                print(f"Database error for article '{title}': {db_e}")
+                try:
+                    Article.objects.get_or_create(
+                        title=title,
+                        link=link,
+                        category="politics",
+                        publisher_logo=publisher_logo,
+                        image=image_loc,
+                        video=video_loc,
+                        lastmod=lastmod
+                    )
+                    print(f"Saved Article: {title}")
+                except Exception as db_e:
+                    print(f"Database error for article '{title}': {db_e}")
     
     except Exception as e:
         print(f"Error fetching articles: {e}")

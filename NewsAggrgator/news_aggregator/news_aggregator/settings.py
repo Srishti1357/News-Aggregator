@@ -46,13 +46,29 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt.token_blacklist',
     'django_filters',
 ]
+# REST_FRAMEWORK = {
+#     'DEFAULT_AUTHENTICATION_CLASSES': (
+#         'rest_framework_simplejwt.authentication.JWTAuthentication',
+#          'rest_framework.authentication.SessionAuthentication',
+#         'rest_framework.authentication.TokenAuthentication',
+#     ),
+#     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.CustomPagination',
+#     'PAGE_SIZE': 20,  # Set the page size for pagination (number of articles per page)
+# }
+
+
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-         'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.TokenAuthentication',
     ),
+    'DEFAULT_PAGINATION_CLASS': 'articles.pagination.CustomPagination',
+    'PAGE_SIZE': 20
+
 }
+
+
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
@@ -150,9 +166,14 @@ CORS_ALLOWED_ORIGINS = [
 # settings.py
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=15),  # Access token expires after 15 minutes
+    'ACCESS_TOKEN_LIFETIME': timedelta(hours=6),  # Access token expires after 15 minutes
     'REFRESH_TOKEN_LIFETIME': timedelta(days=7),     # Refresh token expires after 7 days
     'ROTATE_REFRESH_TOKENS': False,  # Optional, whether to rotate refresh tokens (i.e., issue a new refresh token each time)
     'BLACKLIST_AFTER_ROTATION': True,  # Optional, whether to blacklist refresh tokens after rotation
     'UPDATE_LAST_LOGIN': False,  # Optional, whether to update the last login field when a new refresh token is issued
 }
+
+# REST_FRAMEWORK = {
+#     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.CustomPagination',
+#     'PAGE_SIZE': 20,  # Set the page size for pagination (number of articles per page)
+# }

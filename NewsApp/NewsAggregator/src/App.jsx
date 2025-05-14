@@ -4,6 +4,8 @@ import Navbar from './Components/Navbar';
 import Homepage from './Pages/Homepage';
 import Login from './Components/Login';
 import Register from './Components/Register';
+import SavedArticles from './Pages/SavedArticles';
+import CategoryFilter from './Pages/CategoryFilter';
 // import './App.css';
 
 const App = () => {
@@ -15,6 +17,8 @@ const App = () => {
           <Route path="/" element={<Homepage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/saved" element={<SavedArticles />} />
+          <Route path="/category/:category" element={<CategoryFilter />} />
         </Routes>
       </div>
     </Router>
