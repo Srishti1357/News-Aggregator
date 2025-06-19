@@ -12,8 +12,9 @@ services:
       - key: DEBUG
         value: False
 
-  - type: static
+  - type: web
     name: react-frontend
+    env: static
     rootDir: NewsApp
     buildCommand: npm install && cd NewsAggregator && npm run build
     staticPublishPath: build
