@@ -1,3 +1,25 @@
+# # services:
+# #   - type: web
+# #     name: django-backend
+# #     env: python
+# #     plan: free
+# #     buildCommand: pip install -r requirements.txt
+# #     startCommand: gunicorn news_aggregator.wsgi
+# #     rootDir: news_aggregator
+# #     envVars:
+# #       - key: DJANGO_SECRET_KEY
+# #         value: django-insecure-9qyer=*&6mkl@jla0-(43j=9_n9y41=9-lmf#o3k)tap*^5dgc
+# #       - key: DEBUG
+# #         value: False
+
+# #   - type: web
+# #     name: react-frontend
+# #     env: static
+# #     rootDir: NewsApp
+# #     buildCommand: npm install && cd NewsAggregator && npm run build
+# #     staticPublishPath: build
+
+
 # services:
 #   - type: web
 #     name: django-backend
@@ -5,19 +27,20 @@
 #     plan: free
 #     buildCommand: pip install -r requirements.txt
 #     startCommand: gunicorn news_aggregator.wsgi
-#     rootDir: news_aggregator
+#     rootDir: NewsAggrgator
 #     envVars:
 #       - key: DJANGO_SECRET_KEY
 #         value: django-insecure-9qyer=*&6mkl@jla0-(43j=9_n9y41=9-lmf#o3k)tap*^5dgc
 #       - key: DEBUG
 #         value: False
 
-#   - type: web
+#   - type: static
 #     name: react-frontend
-#     env: static
 #     rootDir: NewsApp
 #     buildCommand: npm install && cd NewsAggregator && npm run build
 #     staticPublishPath: build
+
+
 
 
 services:
@@ -27,15 +50,16 @@ services:
     plan: free
     buildCommand: pip install -r requirements.txt
     startCommand: gunicorn news_aggregator.wsgi
-    rootDir: NewsAggrogator
+    rootDir: NewsAggrgator
     envVars:
       - key: DJANGO_SECRET_KEY
         value: django-insecure-9qyer=*&6mkl@jla0-(43j=9_n9y41=9-lmf#o3k)tap*^5dgc
       - key: DEBUG
         value: False
 
-  - type: static
+  - type: web
     name: react-frontend
+    env: static
     rootDir: NewsApp
     buildCommand: npm install && cd NewsAggregator && npm run build
-    staticPublishPath: build
+    staticPublishPath: NewsAggregator/build
