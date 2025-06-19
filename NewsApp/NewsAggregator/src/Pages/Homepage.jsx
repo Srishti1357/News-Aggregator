@@ -295,12 +295,12 @@ const Homepage = () => {
       setLoading(page === 1);
       setHasMore(true);
 
-      let url = `http://127.0.0.1:8000/articles/?page=${page}`;
+      let url = `https://django-backend-7mwp.onrender.com/articles/?page=${page}`;
       if (searchQuery) {
         url += `&search=${searchQuery}`;
       }
       if (selectedCategory) {
-        url = `http://127.0.0.1:8000/articles/filter/?category=${selectedCategory}&page=${page}`;
+        url = `https://django-backend-7mwp.onrender.com/articles/filter/?category=${selectedCategory}&page=${page}`;
         if (searchQuery) {
           url += `&search=${searchQuery}`;
         }
@@ -340,7 +340,7 @@ const Homepage = () => {
     const fetchSavedArticles = () => {
       const token = sessionStorage.getItem("accessToken");
       axios
-        .get("http://127.0.0.1:8000/saved-articles/", {
+        .get("https://django-backend-7mwp.onrender.com/saved-articles/", {
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
@@ -362,7 +362,7 @@ const Homepage = () => {
     const token = sessionStorage.getItem("accessToken");
     axios
       .post(
-        `http://127.0.0.1:8000/save-article/${articleId}/`,
+        `https://django-backend-7mwp.onrender.com/save-article/${articleId}/`,
         {},
         {
           headers: {

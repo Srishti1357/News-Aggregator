@@ -41,7 +41,7 @@ const Register = () => {
 
     // Send only username and password to backend
     try {
-      const response = await axios.post("http://127.0.0.1:8000/register/", formData);
+      const response = await axios.post("https://django-backend-7mwp.onrender.com/register/", formData);
       setMessage(response.data.message);
       setFormData({ username: "", password: "" }); // Clear the form
       setConfirmPassword(""); // Clear confirmPassword field

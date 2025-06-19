@@ -28,7 +28,7 @@ const Login = () => {
 
     try {
       // Send login request to the backend
-      const response = await axios.post("http://127.0.0.1:8000/login/", formData);
+      const response = await axios.post("https://django-backend-7mwp.onrender.com/login/", formData);
       const { access, refresh, message: successMessage, username} = response.data;
 
       // Store tokens in session storage

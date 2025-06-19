@@ -15,7 +15,7 @@ const Navbar = () => {
     const refreshToken = sessionStorage.getItem('refreshToken');
 
     try {
-      await axios.post('http://127.0.0.1:8000/logout/', { refresh: refreshToken }, {
+      await axios.post('https://django-backend-7mwp.onrender.com/logout/', { refresh: refreshToken }, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${sessionStorage.getItem('accessToken')}`,
