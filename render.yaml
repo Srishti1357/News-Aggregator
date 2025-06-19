@@ -61,5 +61,5 @@ services:
     name: react-frontend
     env: static
     rootDir: NewsApp
-    buildCommand: npm install && cd NewsAggregator && npm run build
+    buildCommand: npm install && npm run build
     staticPublishPath: NewsAggregator/build
