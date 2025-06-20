@@ -156,15 +156,17 @@
 
 
 /* Category Filter Styling */
+/* Category Filter */
 .category-filter {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   margin-bottom: 1.5rem;
-  margin-top: 80px; /* ✅ Ensures it appears below fixed/sticky navbar */
+  margin-top: 80px; /* Keeps below fixed navbar */
   z-index: 1;
   position: relative;
+  padding: 0 1rem;
 }
 
 .category-filter button {
@@ -229,7 +231,7 @@
   font-size: 1.1rem;
   font-weight: 600;
   margin: 0.5rem 0;
-  height: 2.6em; 
+  height: 2.6em;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -288,7 +290,30 @@
   font-weight: 500;
 }
 
-/* Optional: If navbar is fixed, add this to prevent overlap */
+/* Prevent content under navbar */
 body {
-  padding-top: 80px; /* Adjust if your navbar is taller/shorter */
+  padding-top: 80px;
+}
+
+/* ✅ Mobile Responsive Adjustments */
+@media (max-width: 600px) {
+  .category-filter {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding: 0 1rem;
+  }
+
+  .category-filter button {
+    flex: 1 1 45%;
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+
+  .article-list {
+    padding: 0.5rem;
+    gap: 1rem;
+  }
 }
