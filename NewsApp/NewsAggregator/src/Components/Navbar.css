@@ -1,4 +1,4 @@
-
+/* 
 
 .navbar {
   display: flex;
@@ -28,7 +28,7 @@
   gap: 1rem;
 }
 
-/* Brand link (site title) */
+
 .brand {
   font-size: 1.8rem;
   font-weight: bold;
@@ -43,7 +43,7 @@
   transform: scale(1.05);
 }
 
-/* Search Form */
+
 .search-form {
   display: flex;
   align-items: center;
@@ -78,7 +78,6 @@
   color: white;
 }
 
-/* Logout Button */
 .logout-button {
   background-color: #ff6f61;
   color: white;
@@ -100,7 +99,6 @@
   visibility: hidden;
 }
 
-/* Login/Register Buttons */
 .navbar-section.right a:not(.nav-link-basic) {
   text-decoration: none;
   padding: 0.5rem 1rem;
@@ -115,7 +113,6 @@
   color: white;
 }
 
-/* Basic styling for Home and Saved links */
 .navbar-section.right .nav-link-basic {
   background: none;
   color: white;
@@ -128,4 +125,197 @@
 .navbar-section.right .nav-link-basic:hover {
   color: #ffeb3b;
   text-decoration: underline;
+} */
+
+
+
+
+
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  background: linear-gradient(to right, #2c3e50, #00b894);
+  color: white;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Navbar sections */
+.navbar-section {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.navbar-section.left {
+  justify-content: flex-start;
+}
+
+.navbar-section.center {
+  justify-content: center;
+}
+
+.navbar-section.right {
+  justify-content: flex-end;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Brand link */
+.brand {
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+  white-space: nowrap;
+}
+
+.brand:hover {
+  color: #ffeb3b;
+  transform: scale(1.05);
+}
+
+/* Search Form */
+.search-form {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.search-form input {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  border: 1px solid #ffffff;
+  background-color: transparent;
+  color: white;
+  margin-right: 0.5rem;
+  width: 250px;
+}
+
+.search-form input::placeholder {
+  color: white;
+}
+
+.search-form button {
+  padding: 0.5rem 1rem;
+  background-color: #ff6f61;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-form button:hover {
+  background-color: #e55039;
+}
+
+/* Logout Button */
+.logout-button {
+  background-color: #ff6f61;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #e55039;
+}
+
+.empty-placeholder {
+  height: 1px;
+  width: 100%;
+  visibility: hidden;
+}
+
+/* Login/Register Buttons */
+.navbar-section.right a:not(.nav-link-basic) {
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  background-color: #ffffff;
+  color: #2c3e50;
+  border-radius: 20px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  white-space: nowrap;
+}
+
+.navbar-section.right a:not(.nav-link-basic):hover {
+  background-color: #00b894;
+  color: white;
+}
+
+/* Basic link styling */
+.navbar-section.right .nav-link-basic {
+  background: none;
+  color: white;
+  text-decoration: none;
+  padding: 0.3rem 0.6rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+}
+
+.navbar-section.right .nav-link-basic:hover {
+  color: #ffeb3b;
+  text-decoration: underline;
+}
+
+/* 📱 Responsive Fixes */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1rem;
+  }
+
+  .navbar-section {
+    flex: unset;
+    justify-content: center;
+    margin-top: 0.5rem;
+  }
+
+  .search-form {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .search-form input {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .search-form button {
+    width: 100%;
+  }
+
+  .brand {
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 0.5rem 0;
+  }
+
+  .navbar-section.right {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .navbar-section.right a,
+  .logout-button {
+    padding: 0.4rem 0.9rem;
+    font-size: 0.9rem;
+  }
 }
