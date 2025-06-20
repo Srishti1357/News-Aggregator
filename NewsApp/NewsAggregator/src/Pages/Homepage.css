@@ -160,11 +160,11 @@
   flex-wrap: wrap;
   justify-content: flex-start;
   gap: 1rem;
-  margin: 80px 1rem 1.5rem; /* Margin top for navbar space */
+  margin: 80px 1rem 1.5rem; /* Adjust spacing */
   z-index: 1;
   position: relative;
   padding: 0;
-  overflow: hidden; /* 💡 prevents scroll */
+  overflow: hidden; /* Prevent side scroll */
 }
 
 .category-filter button {
@@ -177,7 +177,7 @@
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  white-space: nowrap;
+  white-space: nowrap; /* Prevents breaking inside button */
 }
 
 .category-filter button:hover {
@@ -190,6 +190,7 @@
   background-color: #379683;
   color: white;
 }
+
 
 /* Article List Grid */
 .article-list {
@@ -289,13 +290,13 @@
   font-weight: 500;
 }
 
-/* Prevent content under navbar */
+/* Prevent Horizontal Scroll Globally */
 body {
+  overflow-x: hidden;
   padding-top: 80px;
-  overflow-x: hidden; /* ✅ disables horizontal scroll globally */
 }
 
-/* ✅ Mobile Responsive Adjustments */
+
 @media (max-width: 600px) {
   .category-filter {
     gap: 0.5rem;
