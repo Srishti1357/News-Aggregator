@@ -155,18 +155,16 @@
 } */
 
 
-/* Category Filter Styling */
-/* Category Filter */
 .category-filter {
   display: flex;
-  gap: 1rem;
   flex-wrap: wrap;
   justify-content: flex-start;
-  margin-bottom: 1.5rem;
-  margin-top: 80px; /* Keeps below fixed navbar */
+  gap: 1rem;
+  margin: 80px 1rem 1.5rem; /* Margin top for navbar space */
   z-index: 1;
   position: relative;
-  padding: 0 1rem;
+  padding: 0;
+  overflow: hidden; /* 💡 prevents scroll */
 }
 
 .category-filter button {
@@ -179,6 +177,7 @@
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  white-space: nowrap;
 }
 
 .category-filter button:hover {
@@ -293,14 +292,12 @@
 /* Prevent content under navbar */
 body {
   padding-top: 80px;
+  overflow-x: hidden; /* ✅ disables horizontal scroll globally */
 }
 
 /* ✅ Mobile Responsive Adjustments */
 @media (max-width: 600px) {
   .category-filter {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
     gap: 0.5rem;
     margin-top: 1rem;
     padding: 0 1rem;
