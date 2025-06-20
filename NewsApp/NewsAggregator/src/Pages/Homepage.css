@@ -1,5 +1,4 @@
-/* 
-/* Category Filter Styling */
+/* /* 
 .category-filter {
   display: flex;
   gap: 1rem;
@@ -31,7 +30,6 @@
   color: white;
 }
 
-/* Article List Grid */
 .article-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -39,7 +37,6 @@
   padding: 1rem;
 }
 
-/* Individual Article Card */
 .article {
   border: 1px solid #ddd;
   border-radius: 12px;
@@ -55,7 +52,7 @@
   transform: translateY(-5px);
 }
 
-/* Article Media */
+
 .imageUrl,
 .video-player {
   width: 100%;
@@ -65,12 +62,11 @@
   margin-bottom: 0.75rem;
 }
 
-/* Title with Clamp and Tooltip */
 .article h4 {
   font-size: 1.1rem;
   font-weight: 600;
   margin: 0.5rem 0;
-  height: 3em; /* 2 lines */
+  height: 3em; 
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -95,7 +91,6 @@
   max-width: 300px;
 }
 
-/* Publisher Logo */
 .publisher-logo {
   width: 40px;
   height: 40px;
@@ -103,7 +98,6 @@
   object-fit: contain;
 }
 
-/* Read More Link */
 .article a {
   margin-top: auto;
   color: #3498db;
@@ -115,7 +109,7 @@
   text-decoration: underline;
 }
 
-/* Save Button */
+
 /* .article button {
   margin-top: 0.5rem;
   background-color: #2e7d32;;
@@ -158,10 +152,9 @@
   color: #777;
   margin-top: 2rem;
   font-weight: 500;
-} */
+} 
 
 
-/* Category Filter Styling */
 .category-filter {
   display: flex;
   gap: 1rem;
@@ -193,11 +186,136 @@
   color: white;
 }
 
-/* Article List Grid */
 .article-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
+  padding: 1rem;
+}
+
+.article {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 1rem;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease;
+}
+
+.article:hover {
+  transform: translateY(-5px);
+}
+
+.imageUrl,
+.video-player {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 0.75rem;
+}
+
+.article h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0.5rem 0;
+  height: 2.6em; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  position: relative;
+  cursor: pointer;
+}
+
+.publisher-logo {
+  width: 40px;
+  height: 40px;
+  margin: 0.5rem 0;
+  object-fit: contain;
+}
+
+.article a {
+  margin-top: auto;
+  color: #3498db;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.article a:hover {
+  text-decoration: underline;
+}
+
+.article button {
+  background-color: white;
+  color: #2e7d32;
+  border: 2px solid #379683;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.article button:hover {
+  background-color: #379683;
+  color: white;
+}
+
+.loading-message {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+
+.no-more-articles {
+  text-align: center;
+  color: #777;
+  margin-top: 2rem;
+  font-weight: 500;
+} */
+
+
+
+
+
+
+/* Category Filter Styling */
+.category-filter {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 1.2rem;
+}
+
+.category-filter button {
+  background-color: #f0f0f0;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 500;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 0.95rem;
+}
+
+.category-filter button:hover,
+.category-filter button.active {
+  background-color: #379683;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* Article List Grid */
+.article-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.2rem;
   padding: 1rem;
 }
 
@@ -227,12 +345,12 @@
   margin-bottom: 0.75rem;
 }
 
-/* Title with Clamp (no tooltip override) */
+/* Title */
 .article h4 {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 600;
   margin: 0.5rem 0;
-  height: 2.6em; /* 2 lines */
+  height: 2.6em;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -271,6 +389,7 @@
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
+  font-size: 0.95rem;
 }
 
 .article button:hover {
@@ -278,16 +397,54 @@
   color: white;
 }
 
-/* Loader Message */
-.loading-message {
-  text-align: center;
-  margin-top: 2rem;
-}
-
-/* No more articles text */
+/* Loading and End Messages */
+.loading-message,
 .no-more-articles {
   text-align: center;
-  color: #777;
   margin-top: 2rem;
   font-weight: 500;
+  color: #777;
+}
+
+/* ---------- Responsive Design ---------- */
+@media (max-width: 768px) {
+  .category-filter {
+    gap: 0.5rem;
+    padding: 0 0.5rem;
+  }
+
+  .category-filter button {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+    border-radius: 18px;
+  }
+
+  .article-list {
+    grid-template-columns: 1fr;
+    padding: 0.75rem;
+    gap: 1rem;
+  }
+
+  .article {
+    padding: 0.75rem;
+  }
+
+  .article h4 {
+    font-size: 1rem;
+  }
+
+  .article button {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .imageUrl,
+  .video-player {
+    height: 160px;
+  }
+
+  .publisher-logo {
+    width: 35px;
+    height: 35px;
+  }
 }
