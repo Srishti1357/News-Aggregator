@@ -4,10 +4,10 @@ services:
     name: django-backend
     env: python
     plan: free
-    buildCommand: cd news_aggregator && pip install -r requirements.txt && cd ..
+    buildCommand: pip install -r requirements.txt 
     # startCommand: gunicorn news_aggregator.
     startCommand: gunicorn news_aggregator.wsgi:application
-    rootDir: news_aggregator
+    rootDir: NewsAggrgator/news_aggregator
     # rootDir: NewsAggrgator
     envVars:
       - key: DJANGO_SECRET_KEY
