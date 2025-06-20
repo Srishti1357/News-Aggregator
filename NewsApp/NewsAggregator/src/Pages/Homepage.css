@@ -155,19 +155,23 @@
 } */
 
 
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 .category-filter {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  gap: 1rem;
-  margin: 80px 1rem 1.5rem; /* Adjust spacing */
-  z-index: 1;
-  position: relative;
+  gap: 0.75rem;
+  margin: 80px 1rem 1.5rem;
   padding: 0;
-  overflow: hidden; /* Prevent side scroll */
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
-.category-filter button {
+/* .category-filter button {
   background-color: #f0f0f0;
   border: none;
   padding: 0.5rem 1rem;
@@ -178,7 +182,13 @@
   transition: all 0.3s ease;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   white-space: nowrap; /* Prevents breaking inside button */
+} */
+
+.category-filter button {
+  white-space: nowrap;
+  max-width: 100%;
 }
+
 
 .category-filter button:hover {
   background-color: #379683;
@@ -298,11 +308,16 @@ body {
 
 
 @media (max-width: 600px) {
-  .category-filter {
+  /* .category-filter {
     gap: 0.5rem;
     margin-top: 1rem;
     padding: 0 1rem;
+  } */
+  .category-filter button {
+    flex: 1 1 45%;
+    text-align: center;
   }
+
 
   .category-filter button {
     flex: 1 1 45%;
@@ -314,4 +329,11 @@ body {
     padding: 0.5rem;
     gap: 1rem;
   }
+}
+
+.container {
+  padding: 0 1rem;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }

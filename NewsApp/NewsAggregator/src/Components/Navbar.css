@@ -129,6 +129,11 @@
 
 
 
+.navbar {
+  width: 100%;       /* Not 100vw */
+  max-width: 100%;
+  overflow-x: hidden;
+}
 
 
 .navbar {
