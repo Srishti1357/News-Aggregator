@@ -274,6 +274,7 @@
     flex-direction: column;
     align-items: stretch;
     padding: 1rem;
+    margin-bottom: 1rem;
   }
 
   .navbar-section {
