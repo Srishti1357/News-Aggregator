@@ -1,29 +1,13 @@
 
-# services:
-#   - type: web
-#     name: django-backend
-#     env: python
-#     plan: free
-#     buildCommand: cd news_aggregator && pip install -r requirements.txt && cd ..
-#     # startCommand: gunicorn news_aggregator.
-#     startCommand: gunicorn news_aggregator.wsgi:application
-#     rootDir: NewsAggrgator
-#     envVars:
-#       - key: DJANGO_SECRET_KEY
-#         value: django-insecure-9qyer=*&6mkl@jla0-(43j=9_n9y41=9-lmf#o3k)tap*^5dgc
-#       - key: DEBUG
-#         value: False
-
-
-
 services:
   - type: web
     name: django-backend
     env: python
     plan: free
-    rootDir: NewsAggrgator/NewsAggrgator
-    buildCommand: pip install -r requirements.txt
+    buildCommand: cd news_aggregator && pip install -r requirements.txt && cd ..
+    # startCommand: gunicorn news_aggregator.
     startCommand: gunicorn news_aggregator.wsgi:application
+    rootDir: NewsAggrgator
     envVars:
       - key: DJANGO_SECRET_KEY
         value: django-insecure-9qyer=*&6mkl@jla0-(43j=9_n9y41=9-lmf#o3k)tap*^5dgc
