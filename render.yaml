@@ -7,7 +7,8 @@ services:
     buildCommand: cd news_aggregator && pip install -r requirements.txt && cd ..
     # startCommand: gunicorn news_aggregator.
     startCommand: gunicorn news_aggregator.wsgi:application
-    rootDir: NewsAggrgator
+    rootDir: news_aggregator
+    # rootDir: NewsAggrgator
     envVars:
       - key: DJANGO_SECRET_KEY
         value: django-insecure-9qyer=*&6mkl@jla0-(43j=9_n9y41=9-lmf#o3k)tap*^5dgc
